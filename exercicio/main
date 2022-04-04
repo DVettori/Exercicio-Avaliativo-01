@@ -6,57 +6,109 @@
 
 void PedirDados(void);
 
-int ReceberDados(Void);
+void PedirOperador(void);
 
-float Transformar(int binario);
+int bin_to_dec(int bin)
+{
+    int total  = 0;
+    int potenc = 1;
 
-float RealizarOperacao(char Operacao, float decimal);
+    while(bin > 0) {
+        total += bin % 10 * potenc;
+        bin    = bin / 10;
+        potenc = potenc * 2;
 
-int Retransformar(float resultado);
+        //fprintf(stderr, "while\n");
+    }
 
-void Resultado(int resultado);
+    return total;
+}
+
+//int Transformar(int binario);
+
+//float RealizarOperacao(char Operacao, float decimal);
+
+//int Retransformar(float resultado);
+
+//void Resultado(int resultado);
 
 //....................................................................
 
 int main(void)
 {
-    return 0;
+  int bin = 0;
+  int dec1 = 0, dec2 = 0;
+  char operador[1];
+  
+  PedirDados();  
+  //ReceberDados();
+    scanf("%d", &bin);
+      dec1 = bin_to_dec(bin);
+  PedirOperador();
+    scanf("%s", operador);
+  PedirDados();
+    scanf("%d", &bin);
+      dec2 = bin_to_dec(bin);
+  
+  //operador = ReceberDados();
+  //printf("\n%c\n", operador);
+  //Transformar(0);
+
+  printf("Dec1 = %d\nDec2 = %d\nOperador = %s", dec1, dec2, operador);
+  
+  return 0;
 }
 
 //.....................................................................
 
 void PedirDados(void)
 {
+  char operador;
+  int binario;
     //1- pedir a operação e o cod binario(printf);
-
+  printf("Digite o numero binario:\n");
 }
 
-int ReceberDados(Void)
+void PedirOperador(void)
 {
-    //2- receber a operação e o codigo binario(scanf);
-
+  char operador;
+  int binario;
+    //1- pedir a operação e o cod binario(printf);
+  printf("Digite o operador:\n");
 }
-
-float Transformar(int binario)
+    
+/*int Transformar(int binario)
 {
     //3- transformar binario pra decimal;
+    int resultado;
+	int valor, j, sobra, novoValor = 0;
+	scanf("%i", &valor);
 
+	//pega os dígitos da direita para a esquerda
+	for (j = 0; j < 6; j++) {
+		sobra = valor - ((valor / 10)*10);
+		//printf("%i \n", sobra);
+		valor = valor / 10;
+		novoValor += sobra * pow(2,j);
+	}
+	printf("Decimal: %i \n", novoValor);
+	return resultado;
 }
-
-float RealizarOperacao(char Operacao, float decimal)
-{
+*/
+//float RealizarOperacao(char Operacao, float decimal)
+//{
     //4- fazer a operação;
 
-}
+//}
 
-int Retransformar(float resultado)
-{
+//int Retransformar(float resultado)
+//{
     //5- trasnformar de volta em binario;
 
-}
+//}
 
-void Resultado(int resultado)
-{
+//void Resultado(int resultado)
+//{
     //6- devolver para o usuario a resposta em binario.
 
-}
+//}

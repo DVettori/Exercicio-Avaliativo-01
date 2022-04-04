@@ -26,7 +26,7 @@ int ReceberDados(Void);
 
 float Transformar(int binario);
 
-float RealizarOperacao(string Operacao; float decimal);
+float RealizarOperacao(char Operacao, float decimal);
 
 int Retransformar(float resultado);
 
@@ -41,37 +41,37 @@ int main(void)
 
 //.....................................................................
 
-void PedirDados(void);
+void PedirDados(void)
 {
     //1- pedir a operação e o cod binario(printf);
 
 }
 
-int ReceberDados(Void);
+int ReceberDados(Void)
 {
     //2- receber a operação e o codigo binario(scanf);
 
 }
 
-float Transformar(int binario);
+float Transformar(int binario)
 {
     //3- transformar binario pra decimal;
 
 }
 
-float RealizarOperacao(string Operacao; float decimal);
+float RealizarOperacao(char Operacao, float decimal)
 {
     //4- fazer a operação;
 
 }
 
-int Retransformar(float resultado);
+int Retransformar(float resultado)
 {
     //5- trasnformar de volta em binario;
 
 }
 
-void Resultado(int resultado);
+void Resultado(int resultado)
 {
     //6- devolver para o usuario a resposta em binario.
 
