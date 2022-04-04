@@ -1,61 +1,45 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
-//.................................................................
+char operador[1];
+//...............................................................
 
 void PedirDados(void);
 
 void PedirOperador(void);
 
-int bin_to_dec(int bin)
-{
-    int total  = 0;
-    int potenc = 1;
+int ReceberBin(void);
 
-    while(bin > 0) {
-        total += bin % 10 * potenc;
-        bin    = bin / 10;
-        potenc = potenc * 2;
+int TransformarBinToDec(int bin);
 
-        //fprintf(stderr, "while\n");
-    }
+float RealizarOperacao(int decimal1, int decimal2);
 
-    return total;
-}
+int Retransformar(int resultado);
 
-//int Transformar(int binario);
 
-//float RealizarOperacao(char Operacao, float decimal);
-
-//int Retransformar(float resultado);
-
-//void Resultado(int resultado);
-
-//....................................................................
-
+//...............................................................
 int main(void)
 {
   int bin = 0;
   int dec1 = 0, dec2 = 0;
-  char operador[1];
-  
+  int resultado = 0;
+//...............................................................
   PedirDados();  
   //ReceberDados();
     scanf("%d", &bin);
-      dec1 = bin_to_dec(bin);
+      dec1 = TransformarBinToDec(bin);
   PedirOperador();
     scanf("%s", operador);
   PedirDados();
     scanf("%d", &bin);
-      dec2 = bin_to_dec(bin);
+      dec2 = TransformarBinToDec(bin);
+//...............................................................
+//printf("Dec1 = %d\nDec2 = %d\nOperador = %s\n", dec1, dec2, operador);
+  resultado = RealizarOperacao(dec1, dec2);
+  //printf("deu: %d", resultado);
+  //resultado = Retransformar(resultado);
   
-  //operador = ReceberDados();
-  //printf("\n%c\n", operador);
-  //Transformar(0);
-
-  printf("Dec1 = %d\nDec2 = %d\nOperador = %s", dec1, dec2, operador);
-  
+  printf("O resultado da operação foi: %d", resultado);
   return 0;
 }
 
@@ -63,52 +47,69 @@ int main(void)
 
 void PedirDados(void)
 {
-  char operador;
-  int binario;
     //1- pedir a operação e o cod binario(printf);
   printf("Digite o numero binario:\n");
 }
 
 void PedirOperador(void)
 {
-  char operador;
-  int binario;
     //1- pedir a operação e o cod binario(printf);
   printf("Digite o operador:\n");
 }
     
-/*int Transformar(int binario)
+int TransformarBinToDec(int bin)
 {
-    //3- transformar binario pra decimal;
-    int resultado;
-	int valor, j, sobra, novoValor = 0;
-	scanf("%i", &valor);
+  int total  = 0;
+  int potenc = 1;
 
-	//pega os dígitos da direita para a esquerda
-	for (j = 0; j < 6; j++) {
-		sobra = valor - ((valor / 10)*10);
-		//printf("%i \n", sobra);
-		valor = valor / 10;
-		novoValor += sobra * pow(2,j);
-	}
-	printf("Decimal: %i \n", novoValor);
-	return resultado;
+  while(bin > 0) 
+  {
+    total += bin % 10 * potenc;
+    bin    = bin / 10;
+    potenc = potenc * 2;
+  }
+
+  return total;
 }
-*/
-//float RealizarOperacao(char Operacao, float decimal)
-//{
+
+float RealizarOperacao(int decimal1, int decimal2)
+{
+  float resultado = 0;
     //4- fazer a operação;
+  if(strcmp(operador,"+") == 0)
+  {
+  //printf("vc escolheu +\n"); 
+  resultado = decimal1 + decimal2;
+  }
+  
+  if(strcmp(operador,"*") == 0)
+  {
+    resultado = decimal1 * decimal2;
+  }
 
-//}
+  if(strcmp(operador,"/") == 0)
+  {
+    resultado = decimal1 / decimal2;
+  }
 
-//int Retransformar(float resultado)
-//{
+  if(strcmp(operador,"-") == 0)
+  {
+    resultado = decimal1 - decimal2;
+  }
+
+  if(strcmp(operador,"%") == 0)
+  {
+    resultado = decimal1 % decimal2;  
+  }
+  
+  //printf("o resultado foi: %.2f", resultado);
+  return(resultado);
+}
+
+int Retransformar(int resultado)
+{
+  int resposta = 0;
     //5- trasnformar de volta em binario;
-
-//}
-
-//void Resultado(int resultado)
-//{
-    //6- devolver para o usuario a resposta em binario.
-
-//}
+  //return(reposta);
+  return 0;
+}
