@@ -37,9 +37,10 @@ int main(void)
 //printf("Dec1 = %d\nDec2 = %d\nOperador = %s\n", dec1, dec2, operador);
   resultado = RealizarOperacao(dec1, dec2);
   //printf("deu: %d", resultado);
-  //resultado = Retransformar(resultado);
+  //printf("O resultado da operação foi: %d", resultado);
+  printf("O Resultado da operação foi: ");
+  Retransformar(resultado);
   
-  printf("O resultado da operação foi: %d", resultado);
   return 0;
 }
 
@@ -109,7 +110,21 @@ float RealizarOperacao(int decimal1, int decimal2)
 int Retransformar(int resultado)
 {
   int resposta = 0;
-    //5- trasnformar de volta em binario;
+  int vet_bin[256];
+  int i = 0, j;
+  //5- trasnformar de volta em binario;
+
+  while(resultado>0)
+    {
+      vet_bin[i] = resultado % 2;
+      i++;
+      resultado = resultado/2;
+    }
+  for(j = i - 1 ; j >= 0; j--)
+    { 
+      printf("%d", vet_bin[j]);
+     // printf("\n");
+    }
   //return(reposta);
   return 0;
 }
